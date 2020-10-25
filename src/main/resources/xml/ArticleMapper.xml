@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woqiyounai.mapper.ArticleMapper">
+
+    <select id="filter" resultType="com.woqiyounai.entity.ArticleEntity">
+        SELECT * FROM article
+        WHERE type = #{sort}
+        LIMIT #{currentPage},#{maxSize}
+    </select>
+    <select id="getCount" resultType="java.lang.Integer">
+         SELECT COUNT(*) FROM article
+         WHERE type = #{sort}
+    </select>
+</mapper>
